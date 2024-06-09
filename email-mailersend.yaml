@@ -1,0 +1,14 @@
+apiVersion: example.com/v1
+kind: Email
+metadata:
+  name: test-email-mailersend
+  namespace: email-operator
+spec:
+  senderConfigRef: mailersend-config  # Reference to MailerSend's EmailSenderConfig  
+  recipientEmail: recipient@example.com
+  subject: Test Email with MailerSend
+  body: This is a test email sent using MailerSend.
+status:
+  deliveryStatus: ""
+  messageId: ""
+  error: ""
