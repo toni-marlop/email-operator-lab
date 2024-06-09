@@ -74,6 +74,7 @@ func (el *EmailList) DeepCopyObject() runtime.Object {
 type EmailSenderConfigSpec struct {
     ApiTokenSecretRef string `json:"apiTokenSecretRef"`
     SenderEmail       string `json:"senderEmail"`
+    Provider          string `json:"provider"`
 }
 
 type EmailSenderConfigStatus struct {
