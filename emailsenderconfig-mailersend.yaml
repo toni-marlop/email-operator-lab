@@ -1,0 +1,9 @@
+apiVersion: example.com/v1
+kind: EmailSenderConfig
+metadata:
+  name: mailersend-config  # Nombre del EmailSenderConfig para MailerSend
+  namespace: email-operator
+spec:
+  apiTokenSecretRef: mailersend-secret
+  senderEmail: sender@mailersend.com
+  provider: mailersend  # Indica que este es para MailerSend
