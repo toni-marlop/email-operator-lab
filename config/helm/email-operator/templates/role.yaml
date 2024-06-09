@@ -1,8 +1,6 @@
-# config/helm/email-operator/templates/role.yaml
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
-  namespace: email-operator
   name: email-operator
 rules:
   - apiGroups: [""]
@@ -11,18 +9,3 @@ rules:
   - apiGroups: ["example.com"]
     resources: ["emails", "emailsenderconfigs"]
     verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: email-operator
-  namespace: email-operator
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: email-operator
-subjects:
-  - kind: ServiceAccount
-    name: email-operator
-    namespace: email-operator
-
