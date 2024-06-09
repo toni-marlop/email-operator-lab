@@ -62,6 +62,8 @@ spec:
                   type: string
                 senderEmail:
                   type: string
+                provider:
+                  type: string
             status:
               type: object
   scope: Namespaced
@@ -71,4 +73,3 @@ spec:
     kind: EmailSenderConfig
     shortNames:
       - esc
-
