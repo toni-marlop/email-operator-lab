@@ -1,0 +1,9 @@
+apiVersion: example.com/v1
+kind: EmailSenderConfig
+metadata:
+  name: mailgun-config  # Nombre del EmailSenderConfig para Mailgun
+  namespace: email-operator
+spec:
+  apiTokenSecretRef: mailgun-secret
+  senderEmail: sender@mailgun.com
+  provider: mailgun  # Indica que este es para Mailgun
