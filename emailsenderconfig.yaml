@@ -4,7 +4,8 @@ kind: EmailSenderConfig
 metadata:
   name: my-email-config
   namespace: email-operator
-spec:
+spec:|
+  provider: mailersend  # It can be 'mailersend' o 'mailgun'
   apiTokenSecretRef: my-email-secret
   senderEmail: sender@example.com
 
