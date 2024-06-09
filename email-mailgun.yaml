@@ -1,0 +1,14 @@
+apiVersion: example.com/v1
+kind: Email
+metadata:
+  name: test-email-mailgun
+  namespace: email-operator
+spec:
+  senderConfigRef: mailgun-config  # EmailSenderConfig name for Mailgun
+  recipientEmail: recipient@example.com
+  subject: Test Email with Mailgun
+  body: This is a test email sent using Mailgun.
+status:
+  deliveryStatus: ""
+  messageId: ""
+  error: ""
