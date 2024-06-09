@@ -1,0 +1,10 @@
+# emailsenderconfig.yaml
+apiVersion: example.com/v1
+kind: EmailSenderConfig
+metadata:
+  name: my-email-config
+  namespace: email-operator
+spec:
+  apiTokenSecretRef: my-email-secret
+  senderEmail: sender@example.com
+

@@ -1,0 +1,74 @@
+# config/crd/emails.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: emails.example.com
+spec:
+  group: example.com
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                senderConfigRef:
+                  type: string
+                recipientEmail:
+                  type: string
+                subject:
+                  type: string
+                body:
+                  type: string
+            status:
+              type: object
+              properties:
+                deliveryStatus:
+                  type: string
+                messageId:
+                  type: string
+                error:
+                  type: string
+  scope: Namespaced
+  names:
+    plural: emails
+    singular: email
+    kind: Email
+    shortNames:
+      - em
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: emailsenderconfigs.example.com
+spec:
+  group: example.com
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                apiTokenSecretRef:
+                  type: string
+                senderEmail:
+                  type: string
+            status:
+              type: object
+  scope: Namespaced
+  names:
+    plural: emailsenderconfigs
+    singular: emailsenderconfig
+    kind: EmailSenderConfig
+    shortNames:
+      - esc
+
